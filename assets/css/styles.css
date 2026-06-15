@@ -1,0 +1,937 @@
+:root {
+  --green: #233423;
+  --green-dark: #172315;
+  --gold: #b78a4c;
+  --gold-soft: #d8c09a;
+  --cream: #f6f2eb;
+  --cream-dark: #e9e5dc;
+  --text: #2d3d2d;
+  --white: #fffdf9;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #f7f7f4;
+  color: var(--text);
+  font-family: "Cormorant Garamond", serif;
+  overflow-x: hidden;
+}
+
+/* ============================= */
+/* CONTENEDOR PRINCIPAL */
+/* ============================= */
+
+.wedding-container {
+  width: min(100vw, 430px);
+  max-width: 430px;
+  min-height: 100vh;
+  margin: 0 auto;
+  background: transparent;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+}
+
+/* ============================= */
+/* VIDEO FIXED CENTRADO */
+/* ============================= */
+
+.hero-video {
+  position: fixed !important;
+  top: 0 !important;
+  left: calc(50vw - 215px) !important;
+  inset: auto !important;
+
+  width: 430px !important;
+  height: 100vh !important;
+
+  transform: none !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+
+  z-index: 0 !important;
+  opacity: 1 !important;
+  pointer-events: none !important;
+}
+
+/* Por si usas imagen en alguna prueba */
+.hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ============================= */
+/* PORTADA */
+/* ============================= */
+
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  z-index: 2;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.48),
+      rgba(0, 0, 0, 0.38)
+    ),
+    rgba(35, 52, 35, 0.18);
+  z-index: 1;
+}
+
+.hero-border {
+  position: absolute;
+  inset: 26px 20px;
+  border: 1px solid rgba(183, 138, 76, 0.8);
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  color: #fff;
+  padding: 0 20px;
+}
+
+.hero-content h1 {
+  font-family: "Allura", cursive;
+  font-size: clamp(58px, 18vw, 86px);
+  line-height: 0.95;
+  margin: 12px 0;
+  font-weight: 400;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.45);
+}
+
+.and-text {
+  display: block;
+  color: var(--gold-soft);
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.city-text,
+.hero-date,
+.section-kicker {
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-weight: 700;
+  font-size: 17px;
+  font-style: italic;
+}
+
+.hero-date {
+  margin-top: 18px;
+}
+
+/* ============================= */
+/* FUENTES ESPECIALES */
+/* ============================= */
+
+.l-cursiva {
+  font-family: "Petit Formal Script", cursive !important;
+}
+
+.l-especial::first-letter {
+  font-family: "Petit Formal Script", cursive !important;
+}
+
+/* ============================= */
+/* SECCIONES GENERALES */
+/* ============================= */
+
+.section {
+  padding: 72px 18px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.section h2 {
+  font-family: "Allura", cursive;
+  color: var(--green);
+  font-size: 44px;
+  font-weight: 400;
+  margin: 4px 0 18px;
+}
+
+/* Secciones claras: dejan ver el video suavemente */
+.countdown-section,
+.floral-section,
+.location-section,
+.itinerary-section {
+  background:
+    linear-gradient(
+      rgba(246, 242, 235, 0.86),
+      rgba(246, 242, 235, 0.92)
+    );
+}
+
+/* Secciones tipo ubicación / padrinos, más sólidas */
+.location-section {
+  background:
+    linear-gradient(
+      rgba(233, 229, 220, 0.88),
+      rgba(233, 229, 220, 0.94)
+    );
+}
+
+/* Fondo floral sutil */
+.floral-section,
+.itinerary-section {
+  background:
+    linear-gradient(
+      rgba(255, 253, 249, 0.84),
+      rgba(255, 253, 249, 0.9)
+    ),
+    url("../img/floral-bg.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.divider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  margin: 18px auto 34px;
+  color: var(--gold);
+}
+
+.divider span {
+  display: block;
+  width: 90px;
+  height: 1px;
+  background: rgba(183, 138, 76, 0.45);
+}
+
+.divider i {
+  font-size: 12px;
+}
+
+.soft-text {
+  color: var(--gold-soft);
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  font-size: 13px;
+  margin-top: 22px;
+}
+
+/* Videos internos apagados para no duplicar el video */
+.section-bg-video,
+.section-video-overlay {
+  display: none !important;
+}
+
+.section-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* ============================= */
+/* CONTADOR */
+/* ============================= */
+
+.countdown-section {
+  padding-top: 58px;
+  padding-bottom: 58px;
+}
+
+.countdown-card {
+  background: rgba(255, 253, 249, 0.96);
+  border: 1px solid rgba(183, 138, 76, 0.25);
+  border-radius: 14px;
+  padding: 14px;
+  box-shadow: 0 0 0 12px rgba(255, 253, 249, 0.55);
+}
+
+.countdown-grid {
+  border: 1px solid rgba(183, 138, 76, 0.2);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  padding: 28px 8px 22px;
+}
+
+.countdown-grid span {
+  display: block;
+  color: var(--green);
+  font-size: 38px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.countdown-grid small {
+  display: block;
+  color: var(--gold);
+  text-transform: uppercase;
+  font-style: italic;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-top: 14px;
+  font-size: 15px;
+}
+
+/* ============================= */
+/* FAMILIAS / PADRINOS */
+/* ============================= */
+
+.family-card {
+  background: rgba(255, 253, 249, 0.96);
+  border: 1px solid rgba(183, 138, 76, 0.25);
+  border-radius: 6px;
+  padding: 10px;
+  box-shadow: 0 8px 26px rgba(52, 52, 40, 0.06);
+}
+
+.family-block {
+  border: 1px solid rgba(183, 138, 76, 0.18);
+  padding: 28px 14px;
+}
+
+.family-border {
+  border-top: none;
+}
+
+.family-block h3 {
+  color: var(--gold);
+  font-size: 22px;
+  font-weight: 700;
+  font-style: italic;
+  margin-bottom: 18px;
+}
+
+.family-block p {
+  font-family: "Allura", cursive;
+  color: var(--green);
+  font-size: 31px;
+  margin: 6px 0;
+}
+
+.family-block .mini-divider {
+  font-family: "Cormorant Garamond", serif;
+  color: var(--gold-soft);
+  font-size: 18px;
+}
+
+/* ============================= */
+/* UBICACIÓN */
+/* ============================= */
+
+.location-icon {
+  color: var(--gold);
+  font-size: 40px;
+  margin-bottom: 22px;
+  display: block;
+}
+
+.location-city {
+  color: var(--gold);
+  font-size: 23px;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.location-card {
+  background: rgba(255, 253, 249, 0.96);
+  border: 1px solid rgba(183, 138, 76, 0.25);
+  border-radius: 6px;
+  margin-top: 32px;
+  padding: 26px 18px;
+  box-shadow: 0 0 0 12px rgba(255, 253, 249, 0.45);
+}
+
+.location-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+  padding: 8px 0;
+}
+
+.location-row i {
+  color: var(--gold);
+  font-size: 20px;
+}
+
+.location-row p {
+  margin: 0;
+  font-size: 21px;
+}
+
+.location-row strong {
+  color: var(--gold);
+}
+
+.location-card hr {
+  border-color: rgba(183, 138, 76, 0.25);
+  margin: 18px 0;
+}
+
+.map-box {
+  width: 100%;
+  height: 230px;
+  overflow: hidden;
+  border-radius: 4px;
+  margin-top: 24px;
+}
+
+.map-box iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.btn-location,
+.btn-album {
+  border-radius: 999px;
+  background: var(--green);
+  color: var(--gold-soft);
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  padding: 14px 24px;
+  font-size: 14px;
+  margin-top: 22px;
+  width: 90%;
+  max-width: 330px;
+}
+
+.btn-location:hover,
+.btn-album:hover {
+  background: var(--green-dark);
+  color: #fff;
+}
+
+/* ============================= */
+/* ITINERARIO */
+/* ============================= */
+
+.timeline {
+  padding-top: 12px;
+}
+
+.timeline-item {
+  position: relative;
+  padding: 12px 0 34px;
+}
+
+.timeline-item::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 44px;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 64px;
+  background: rgba(183, 138, 76, 0.35);
+}
+
+.timeline-item:last-child::after {
+  display: none;
+}
+
+.diamond {
+  width: 14px;
+  height: 14px;
+  background: var(--gold);
+  display: inline-block;
+  transform: rotate(45deg);
+  margin-bottom: 20px;
+}
+
+.diamond.soft {
+  background: #b5c8b7;
+}
+
+.timeline-item h3 {
+  color: var(--green);
+  font-size: 48px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.timeline-item p {
+  font-size: 23px;
+  font-style: italic;
+  margin: 0;
+}
+
+/* ============================= */
+/* GALERÍA */
+/* Aquí NO se ve el video */
+/* ============================= */
+
+.gallery-section {
+  background:
+    linear-gradient(
+      rgba(233, 229, 220, 1),
+      rgba(233, 229, 220, 1)
+    ),
+    url("../img/floral-bg.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.gallery-text {
+  max-width: 300px;
+  margin: 0 auto 34px;
+  font-size: 22px;
+  font-style: italic;
+  line-height: 1.7;
+}
+
+.carousel {
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 12px 28px rgba(52, 52, 40, 0.15);
+}
+
+.carousel-item img {
+  height: 430px;
+  object-fit: cover;
+}
+
+.swipe-text {
+  color: var(--gold);
+  letter-spacing: 6px;
+  font-style: italic;
+  margin-top: 28px;
+}
+
+/* ============================= */
+/* ÁLBUM */
+/* Aquí NO se ve el video */
+/* ============================= */
+
+.album-section {
+  background: var(--green);
+  color: #fff;
+}
+
+.album-section .section-kicker,
+.album-section h2 {
+  color: var(--gold-soft);
+}
+
+.album-section h2 {
+  font-family: "Allura", cursive;
+  font-size: 43px;
+}
+
+.dark-divider span {
+  background: rgba(216, 192, 154, 0.25);
+}
+
+.album-icon {
+  font-size: 56px;
+  color: var(--gold-soft);
+  display: block;
+  margin-bottom: 28px;
+}
+
+.album-section p {
+  font-size: 22px;
+  font-style: italic;
+  line-height: 1.8;
+  max-width: 330px;
+  margin: 0 auto 40px;
+}
+
+.btn-album {
+  border: 1px solid rgba(216, 192, 154, 0.35);
+  background: transparent;
+  color: var(--gold-soft);
+}
+
+.btn-album:hover {
+  background: rgba(216, 192, 154, 0.12);
+  color: #fff;
+}
+
+/* ============================= */
+/* FOOTER INICIALES */
+/* Aquí NO se ve el video */
+/* ============================= */
+
+.initials-section {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 80px 18px 110px;
+  background: var(--green);
+  color: #fff;
+}
+
+.initials {
+  font-family: "Allura", cursive;
+  color: var(--gold);
+  font-size: 80px;
+}
+
+.initials span {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 22px;
+  vertical-align: middle;
+  color: var(--gold-soft);
+}
+
+.small-divider {
+  margin-top: 8px;
+  margin-bottom: 26px;
+}
+
+.small-divider span {
+  width: 55px;
+}
+
+.initials-section p {
+  color: var(--gold-soft);
+  text-transform: uppercase;
+  letter-spacing: 7px;
+  font-size: 14px;
+}
+
+/* ============================= */
+/* BOTÓN MÚSICA */
+/* ============================= */
+
+.music-button {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  width: 58px;
+  height: 58px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(35, 52, 35, 0.95);
+  color: var(--gold-soft);
+  font-size: 28px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  cursor: pointer;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.music-button:hover {
+  transform: scale(1.06);
+  background: var(--green-dark);
+}
+
+.music-button.playing {
+  background: var(--gold);
+  color: #fff;
+}
+
+/* ============================= */
+/* ANIMACIÓN DE APARICIÓN SUAVE */
+/* ============================= */
+
+.reveal-item {
+  opacity: 0;
+  transform: translateY(42px);
+  filter: blur(3px);
+  transition:
+    opacity 1s ease,
+    transform 1s ease,
+    filter 1s ease;
+  will-change: opacity, transform, filter;
+}
+
+.reveal-item.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+.reveal-delay-1 {
+  transition-delay: 0.12s;
+}
+
+.reveal-delay-2 {
+  transition-delay: 0.24s;
+}
+
+.reveal-delay-3 {
+  transition-delay: 0.36s;
+}
+
+.reveal-delay-4 {
+  transition-delay: 0.48s;
+}
+
+/* Portada: solo desvanecido desde su misma posición */
+.hero-content.reveal-item,
+.hero-border.reveal-item {
+  opacity: 0;
+  transform: none;
+  filter: blur(2px);
+}
+
+.hero-content.reveal-item.reveal-visible,
+.hero-border.reveal-item.reveal-visible {
+  opacity: 1;
+  transform: none;
+  filter: blur(0);
+}
+
+/* ============================= */
+/* PARTÍCULAS EN TODA LA PANTALLA */
+/* ============================= */
+
+.sparkles-layer,
+.fireworks-layer {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.sparkles-layer {
+  z-index: 997;
+}
+
+.fireworks-layer {
+  z-index: 998;
+}
+
+/* Estrellas */
+.sparkle {
+  position: absolute;
+  left: var(--sparkle-left);
+  top: var(--sparkle-top);
+  width: var(--sparkle-size);
+  height: var(--sparkle-size);
+  background: var(--sparkle-color);
+  opacity: 0;
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+  filter:
+    drop-shadow(0 0 5px rgba(216, 192, 154, 0.9))
+    drop-shadow(0 0 12px rgba(255, 255, 255, 0.45));
+  animation:
+    starTwinkle var(--sparkle-duration) ease-in-out infinite,
+    starFloat var(--sparkle-float) ease-in-out infinite;
+  animation-delay: var(--sparkle-delay);
+}
+
+.sparkle.round {
+  border-radius: 50%;
+  clip-path: none;
+}
+
+.sparkle.soft {
+  filter:
+    drop-shadow(0 0 4px rgba(255, 255, 255, 0.8))
+    drop-shadow(0 0 10px rgba(216, 192, 154, 0.5));
+}
+
+@keyframes starTwinkle {
+  0% {
+    opacity: 0;
+    transform: scale(0.35) rotate(0deg);
+  }
+
+  35% {
+    opacity: 0.95;
+    transform: scale(1) rotate(18deg);
+  }
+
+  65% {
+    opacity: 0.45;
+    transform: scale(0.78) rotate(34deg);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.35) rotate(52deg);
+  }
+}
+
+@keyframes starFloat {
+  0% {
+    margin-top: 0;
+    margin-left: 0;
+  }
+
+  50% {
+    margin-top: -12px;
+    margin-left: 7px;
+  }
+
+  100% {
+    margin-top: 0;
+    margin-left: 0;
+  }
+}
+
+/* ============================= */
+/* PIROTECNIA EN TODA LA PANTALLA */
+/* ============================= */
+
+.firework {
+  position: absolute;
+  left: var(--firework-left);
+  top: var(--firework-top);
+  width: 6px;
+  height: 6px;
+}
+
+.firework-particle {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: var(--particle-size);
+  height: var(--particle-size);
+  background: var(--particle-color);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  box-shadow:
+    0 0 6px var(--particle-color),
+    0 0 14px rgba(255, 255, 255, 0.45);
+  animation: fireworkBurst 1.35s ease-out forwards;
+  animation-delay: var(--particle-delay);
+}
+
+.firework-particle.star {
+  border-radius: 0;
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+}
+
+@keyframes fireworkBurst {
+  0% {
+    opacity: 0;
+    transform:
+      translate(-50%, -50%)
+      rotate(var(--particle-angle))
+      translateX(0)
+      scale(0.4);
+  }
+
+  12% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 0.9;
+  }
+
+  100% {
+    opacity: 0;
+    transform:
+      translate(-50%, -50%)
+      rotate(var(--particle-angle))
+      translateX(var(--particle-distance))
+      scale(0.1);
+  }
+}
+
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+
+@media (max-width: 430px) {
+  .wedding-container {
+    width: 100vw;
+    max-width: 100%;
+  }
+
+  .hero-video {
+    left: 0 !important;
+    width: 100vw !important;
+    max-width: 100% !important;
+  }
+}
+
+@media (max-width: 375px) {
+  .section h2 {
+    font-size: 38px;
+  }
+
+  .countdown-grid span {
+    font-size: 31px;
+  }
+
+  .countdown-grid small {
+    font-size: 13px;
+  }
+
+  .timeline-item h3 {
+    font-size: 42px;
+  }
+
+  .hero-content h1 {
+    font-size: 60px;
+  }
+
+  .hero-date {
+    font-size: 14px;
+    letter-spacing: 3px;
+  }
+}
+
+/* ============================= */
+/* REDUCCIÓN DE MOVIMIENTO */
+/* ============================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-item {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+
+  .sparkle,
+  .firework-particle {
+    animation: none;
+    opacity: 0.45;
+  }
+}

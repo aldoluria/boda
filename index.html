@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Nuestra Boda | Liz & Aldo</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpg" href="assets/img/favicon.png" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Petit+Formal+Script&display=swap"
+    rel="stylesheet"
+  >
+  <link
+    href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:wght@400;500;600;700&family=Petit+Formal+Script&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Bootstrap Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+  >
+
+  <!-- CSS personalizado -->
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+
+<body>
+  <!-- Audio de fondo -->
+  <audio id="backgroundMusic" loop preload="auto">
+    <source src="assets/audio/Kygo - Freeze.mp3" type="audio/mpeg" />
+    Tu navegador no soporta audio HTML5.
+  </audio>
+
+  <main class="wedding-container">
+
+    <!-- Hero / Portada -->
+    <header class="hero-section">
+      <video class="hero-video" autoplay muted loop playsinline preload="auto">
+      <source src="assets/video/video.mp4" type="video/mp4">
+        Tu navegador no soporta video HTML5.
+      </video>
+
+      <div class="hero-overlay"></div>
+
+      <div class="hero-border"></div>
+
+      <div class="hero-content">
+      <h1 class="l-especial">Liz</h1>
+        <span class="and-text l-cursiva">&</span>
+        <h1>Aldo</h1>
+        <p class="hero-date">Sábado · 5 de Septiembre</p>
+      </div>
+    </header>
+
+    <!-- Contador -->
+    <section class="section countdown-section">
+      <p class="section-kicker">Faltan</p>
+
+      <div class="countdown-card">
+        <div class="countdown-grid">
+          <div>
+            <span id="days">000</span>
+            <small>Días</small>
+          </div>
+
+          <div>
+            <span id="hours">00</span>
+            <small>Horas</small>
+          </div>
+
+          <div>
+            <span id="minutes">00</span>
+            <small>Min</small>
+          </div>
+
+          <div>
+            <span id="seconds">00</span>
+            <small>Seg</small>
+          </div>
+        </div>
+      </div>
+
+      <p class="soft-text">Para el gran día</p>
+    </section>
+
+    <!-- Familias -->
+    <section class="section floral-section">
+      <p class="section-kicker">Con la bendición de</p>
+      <h2>Nuestras Familias</h2>
+
+      <div class="divider">
+        <span></span>
+        <i class="bi bi-gem"></i>
+        <span></span>
+      </div>
+
+      <div class="family-card">
+        <div class="family-block">
+          <h3>Familia de la Novia</h3>
+          <p>Elvira Rodríguez Tlachi</p>
+          <p class="mx-auto mini-divider">y</p>
+          <p>Javier Zamora Flores</p>
+        </div>
+
+        <div class="family-block family-border">
+          <h3>Familia del Novio</h3>
+          <p>Maximina García Muñoz</p>
+          <p class="mx-auto mini-divider">y</p>
+          <p class="l-especial">Luis Edgardo <span class="l-cursiva">L</span>uría Espínola</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Padrinos -->
+    <section class="section location-section">
+      <p class="section-kicker">Y de</p>
+      <h2>Nuestros Padrinos</h2>
+
+      <div class="divider">
+        <span></span>
+        <i class="bi bi-gem"></i>
+        <span></span>
+      </div>
+
+      <div class="family-card">
+        <div class="family-block">
+          <h3>Velación</h3>
+          <p>Silvia García Muñoz</p>
+          <p class="mx-auto mini-divider">y</p>
+          <p>Alejandro Camacho</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ubicación Ceremonia -->
+    <section class="section floral-section video-bg-section">
+      <div class="section-content">
+        <i class="bi bi-geo-alt location-icon"></i>
+
+        <p class="section-kicker">Ceremonia Religiosa</p>
+        <h2>Parroquia de San José</h2>
+        <p class="location-city">Tlaxcala de Xicohtencatl</p>
+
+        <div class="location-card">
+            <div class="location-row">
+            <i class="bi bi-clock"></i>
+            <p><strong>1:00 p.m.</strong> · Ceremonia Religiosa</p>
+            </div>
+
+            <div class="map-box">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1161.6388304881084!2d-98.23881311355824!3d19.31842938364922!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cfd93c151ef1f9%3A0x21cc6f18c837e72b!2sParroquia%20San%20Jos%C3%A9%2C%20Tlaxcala%20ciudad%20capital!5e0!3m2!1ses!2smx!4v1781505719124!5m2!1ses!2smx" 
+                allowfullscreen=""
+                loading="lazy">
+            </iframe>
+            </div>
+
+            <a
+            class="btn btn-location"
+            href="https://www.google.com/maps/dir//Parroquia+San+Jos%C3%A9,+Tlaxcala+ciudad+capital,+Calle+1+de+Mayo+4,+Centro,+90000+Tlaxcala+de+Xicoht%C3%A9ncatl,+Tlax./@19.309794,-98.2486902,14.94z/data=!4m17!1m7!3m6!1s0x85cfd93c151ef1f9:0x21cc6f18c837e72b!2sParroquia+San+Jos%C3%A9,+Tlaxcala+ciudad+capital!8m2!3d19.3183004!4d-98.2387631!16s%2Fg%2F11b6rymbr8!4m8!1m0!1m5!1m1!1s0x85cfd93c151ef1f9:0x21cc6f18c837e72b!2m2!1d-98.2387097!2d19.3183764!3e3?entry=ttu&g_ep=EgoyMDI2MDYxMC4wIKXMDSoASAFQAw%3D%3D"
+            target="_blank"
+            >
+            <i class="bi bi-geo-alt-fill"></i>
+            Cómo llegar
+            </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ubicación Recepción -->
+    <section class="section location-section">
+      <i class="bi bi-geo-alt location-icon"></i>
+
+      <p class="section-kicker">Recepción</p>
+      <h2>Cesar's Palace</h2>
+      <p class="location-city">Ixcotla, Chiautempan</p>
+
+      <div class="location-card">
+        <div class="location-row">
+          <i class="bi bi-clock"></i>
+          <p><strong>3:00 p.m.</strong> · Recepción y Festejo</p>
+        </div>
+        <div class="map-box">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21449.87154742641!2d-98.18942610061762!3d19.318983449947147!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cfdff7eea483e5%3A0x63301702e0f8c15d!2zU2Fsw7NuIEphcmTDrW4gQ2VzYXLCtHMgUGFsYWNl!5e0!3m2!1ses!2smx!4v1781505883906!5m2!1ses!2smx"
+            allowfullscreen=""
+            loading="lazy">
+          </iframe>
+        </div>
+
+        <a
+          class="btn btn-location"
+          href="https://www.google.com/maps/dir//Sal%C3%B3n+Jard%C3%ADn+Cesar%C2%B4s+Palace,+C.+Cuauht%C3%A9moc+1,+Guadalupe+Ixcotla,+90804+Santa+Ana+Chiautempan,+Tlax./@19.3189834,-98.1894261,14z/data=!4m17!1m7!3m6!1s0x85cfdff7eea483e5:0x63301702e0f8c15d!2zU2Fsw7NuIEphcmTDrW4gQ2VzYXLCtHMgUGFsYWNl!8m2!3d19.313041!4d-98.1641493!16s%2Fg%2F11hyr4xh47!4m8!1m0!1m5!1m1!1s0x85cfdff7eea483e5:0x63301702e0f8c15d!2m2!1d-98.1641541!2d19.3130335!3e3?entry=ttu&g_ep=EgoyMDI2MDYxMC4wIKXMDSoASAFQAw%3D%3D"
+          target="_blank"
+        >
+          <i class="bi bi-geo-alt-fill"></i>
+          Cómo llegar
+        </a>
+      </div>
+    </section>
+
+    <!-- Itinerario -->
+    <section class="section floral-section itinerary-section">
+      <p class="section-kicker">El programa del día</p>
+      <h2>Itinerario</h2>
+
+      <div class="divider">
+        <span></span>
+        <i class="bi bi-gem"></i>
+        <span></span>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="diamond"></span>
+          <h3>1:00 p.m.</h3>
+          <p>Ceremonia Religiosa</p>
+        </div>
+
+        <div class="timeline-item">
+          <span class="diamond soft"></span>
+          <h3>3:00 p.m.</h3>
+          <p>Recepción y Comida</p>
+        </div>
+
+        <div class="timeline-item">
+          <span class="diamond"></span>
+          <h3>6:00 p.m.</h3>
+          <p>¡A Celebrar! · Música y Baile</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Carrusel -->
+    <section class="section gallery-section">
+      <p class="section-kicker">Nosotros</p>
+      <h2>Nuestra Historia</h2>
+
+      <div class="divider">
+        <span></span>
+        <i class="bi bi-gem"></i>
+        <span></span>
+      </div>
+
+      <p class="gallery-text">
+        Cada imagen, un capítulo de nuestra historia de amor.
+      </p>
+
+      <div id="weddingCarousel" class="carousel slide" data-bs-touch="true">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="assets/img/img1.jpg" class="d-block w-100" alt="Foto 1">
+          </div>
+
+          <div class="carousel-item">
+            <img src="assets/img/img2.jpg" class="d-block w-100" alt="Foto 2">
+          </div>
+
+          <div class="carousel-item">
+            <img src="assets/img/img3.jpg" class="d-block w-100" alt="Foto 3">
+          </div>
+
+          <div class="carousel-item">
+            <img src="assets/img/img4.jpg" class="d-block w-100" alt="Foto 4">
+          </div>
+
+          <div class="carousel-item">
+            <img src="assets/img/img5.jpg" class="d-block w-100" alt="Foto 5">
+          </div>
+
+          <div class="carousel-item">
+            <img src="assets/img/img6.jpg" class="d-block w-100" alt="Foto 6">
+          </div>
+
+          <div class="carousel-item">
+            <img src="assets/img/img7.jpg" class="d-block w-100" alt="Foto 7">
+          </div>
+
+          <div class="carousel-item">
+            <img src="assets/img/img8.png" class="d-block w-100" alt="Foto 8">
+          </div>
+
+          <div class="carousel-item">
+            <img src="assets/img/img9.jpg" class="d-block w-100" alt="Foto 9">
+          </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#weddingCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+
+        <button class="carousel-control-next" type="button" data-bs-target="#weddingCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+
+      <p class="swipe-text">Desliza para ver más</p>
+    </section>
+
+    <!-- Álbum compartido -->
+    <section class="section album-section">
+      <p class="section-kicker">Comparte el momento</p>
+      <h2>Álbum Compartido</h2>
+
+      <div class="divider dark-divider">
+        <span></span>
+        <i class="bi bi-gem"></i>
+        <span></span>
+      </div>
+
+      <i class="bi bi-camera album-icon"></i>
+
+      <p>
+        Comparte tus fotos y videos en nuestro álbum.
+        Será el recuerdo colectivo de este día tan especial.
+      </p>
+
+      <a href="https://photos.app.goo.gl/8vc4UaC8WMQrcbpR6" class="btn btn-album" target="_blank">
+        <i class="bi bi-image"></i>
+        Subir fotos al álbum
+      </a>
+    </section>
+
+    <!-- Iniciales / Footer -->
+    <footer class="initials-section">
+      <div class="initials l-especial">L <span class="l-cursiva">&</span> A</div>
+
+      <div class="divider dark-divider small-divider">
+        <span></span>
+        <i class="bi bi-gem"></i>
+        <span></span>
+      </div>
+
+      <p>05 · Septiembre · 2026</p>
+    </footer>
+
+    <!-- Botón Play / Pause -->
+    <button id="musicButton" class="music-button" type="button" aria-label="Reproducir música">
+      <span id="musicIcon"><i class="bi bi-play-fill"></i></span>
+    </button>
+
+  </main>
+
+  <!-- Bootstrap JS -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  ></script>
+
+  <!-- JS personalizado -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
