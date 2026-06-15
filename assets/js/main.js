@@ -1,9 +1,11 @@
 const music = document.getElementById("backgroundMusic");
 const musicButton = document.getElementById("musicButton");
 const musicIcon = document.getElementById("musicIcon");
+const openingScreen = document.getElementById("openingScreen");
+const openInvitationButton = document.getElementById("openInvitationButton");
 
 let isPlaying = false;
-let userInteracted = false;
+let invitationOpened = false;
 
 function setPlayingState() {
   isPlaying = true;
@@ -26,22 +28,30 @@ async function playMusic() {
   }
 }
 
-function tryPlayOnUserInteraction() {
-  if (!userInteracted && !isPlaying) {
-    userInteracted = true;
-    playMusic();
-  }
+function openInvitation() {
+  if (invitationOpened) return;
+
+  invitationOpened = true;
+
+  openingScreen.classList.add("opening-active");
+
+  playMusic();
+
+  setTimeout(() => {
+    openingScreen.classList.add("opening-hide");
+    document.body.classList.remove("has-opening");
+  }, 900);
+
+  setTimeout(() => {
+    openingScreen.remove();
+  }, 1900);
 }
 
-/* Intenta reproducir al cargar la página */
-window.addEventListener("load", () => {
-  playMusic();
-});
-
-/* Si el navegador bloquea el autoplay, reproduce al primer click, toque o scroll */
-document.addEventListener("click", tryPlayOnUserInteraction, { once: true });
-document.addEventListener("touchstart", tryPlayOnUserInteraction, { once: true });
-window.addEventListener("scroll", tryPlayOnUserInteraction, { once: true });
+openInvitationButton.addEventListener("click", openInvitation);
+openInvitationButton.addEventListener("touchstart", (event) => {
+  event.preventDefault();
+  openInvitation();
+}, { passive: false });
 
 /* Botón Play / Pause */
 musicButton.addEventListener("click", async (event) => {
@@ -280,3 +290,72 @@ function startFireworks() {
 }
 
 startFireworks();
+
+/* ============================= */
+/* CARRUSEL: SWIPE + TRACKPAD */
+/* ============================= */
+
+function initBetterCarousel() {
+  const carouselElement = document.getElementById("weddingCarousel");
+
+  if (!carouselElement || typeof bootstrap === "undefined") return;
+
+  const carousel = bootstrap.Carousel.getOrCreateInstance(carouselElement, {
+    interval: false,
+    touch: true,
+    wrap: true
+  });
+
+  let startX = 0;
+  let startY = 0;
+  let isDragging = false;
+  let lastWheelTime = 0;
+
+  carouselElement.addEventListener("pointerdown", (event) => {
+    startX = event.clientX;
+    startY = event.clientY;
+    isDragging = true;
+  });
+
+  carouselElement.addEventListener("pointerup", (event) => {
+    if (!isDragging) return;
+
+    const diffX = event.clientX - startX;
+    const diffY = event.clientY - startY;
+
+    isDragging = false;
+
+    if (Math.abs(diffX) > 45 && Math.abs(diffX) > Math.abs(diffY)) {
+      if (diffX < 0) {
+        carousel.next();
+      } else {
+        carousel.prev();
+      }
+    }
+  });
+
+  carouselElement.addEventListener("pointercancel", () => {
+    isDragging = false;
+  });
+
+  /* Trackpad horizontal */
+  carouselElement.addEventListener("wheel", (event) => {
+    const now = Date.now();
+
+    if (Math.abs(event.deltaX) <= Math.abs(event.deltaY)) return;
+    if (Math.abs(event.deltaX) < 20) return;
+    if (now - lastWheelTime < 650) return;
+
+    event.preventDefault();
+
+    if (event.deltaX > 0) {
+      carousel.next();
+    } else {
+      carousel.prev();
+    }
+
+    lastWheelTime = now;
+  }, { passive: false });
+}
+
+initBetterCarousel();

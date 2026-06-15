@@ -37,12 +37,29 @@
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 
-<body>
+<body class="has-opening">
   <!-- Audio de fondo -->
   <audio id="backgroundMusic" loop preload="auto">
     <source src="assets/audio/Kygo - Freeze.mp3" type="audio/mpeg" />
     Tu navegador no soporta audio HTML5.
   </audio>
+
+  <!-- Pantalla inicial / Sobre -->
+  <section id="openingScreen" class="opening-screen">
+    <div class="envelope-card">
+      <div class="envelope-flap"></div>
+  
+      <div class="wax-seal">
+        <span class="l-cursiva">L</span>
+        <small class="l-cursiva">&</small>
+        <span class="a-tamanio-wax">A</span>
+      </div>
+  
+      <button id="openInvitationButton" class="open-invitation-button" type="button">
+        Toca para abrir
+      </button>
+    </div>
+  </section>
 
   <main class="wedding-container">
 
@@ -140,7 +157,7 @@
           <h3>Velación</h3>
           <p>Silvia García Muñoz</p>
           <p class="mx-auto mini-divider">y</p>
-          <p>Alejandro Camacho</p>
+          <p>Alejandro Camacho Carreon</p>
         </div>
       </div>
     </section>
@@ -259,7 +276,13 @@
         Cada imagen, un capítulo de nuestra historia de amor.
       </p>
 
-      <div id="weddingCarousel" class="carousel slide" data-bs-touch="true">
+      <div
+          id="weddingCarousel"
+          class="carousel slide"
+          data-bs-touch="true"
+          data-bs-interval="false"
+          data-bs-wrap="true"
+        >
         <div class="carousel-inner">
           <div class="carousel-item active">
             <img src="assets/img/img1.jpg" class="d-block w-100" alt="Foto 1">
@@ -336,7 +359,7 @@
 
     <!-- Iniciales / Footer -->
     <footer class="initials-section">
-      <div class="initials l-especial">L <span class="l-cursiva">&</span> A</div>
+      <div class="initials l-especial">L <span class="l-cursiva">&</span> <span class="a-tamanio-initials">A</span></div>
 
       <div class="divider dark-divider small-divider">
         <span></span>

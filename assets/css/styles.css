@@ -578,31 +578,48 @@ body {
   position: relative;
   z-index: 2;
   text-align: center;
-  padding: 80px 18px 110px;
+
+  min-height: 100vh;
+  min-height: 100dvh;
+
+  padding: 80px 18px;
   background: var(--green);
   color: #fff;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .initials {
   font-family: "Allura", cursive;
   color: var(--gold);
-  font-size: 80px;
+  font-size: 90px;
+  line-height: 1;
+}
+
+.a-tamanio-wax{
+  font-size: clamp(90px, 9vw, 120px);
+}
+
+.a-tamanio-initials{
+  font-family: "Allura", cursive !important;
+  color: var(--gold) !important;
+  font-size: 100px !important;
+  line-height: 1 !important;
 }
 
 .initials span {
   font-family: "Cormorant Garamond", serif;
-  font-size: 22px;
+  font-size: 24px;
   vertical-align: middle;
   color: var(--gold-soft);
 }
 
 .small-divider {
-  margin-top: 8px;
-  margin-bottom: 26px;
-}
-
-.small-divider span {
-  width: 55px;
+  margin-top: 18px;
+  margin-bottom: 28px;
 }
 
 .initials-section p {
@@ -610,6 +627,7 @@ body {
   text-transform: uppercase;
   letter-spacing: 7px;
   font-size: 14px;
+  margin-bottom: 0;
 }
 
 /* ============================= */
@@ -933,5 +951,216 @@ body {
   .firework-particle {
     animation: none;
     opacity: 0.45;
+  }
+}
+
+/* ============================= */
+/* FIX SOBRE EN PANTALLA COMPLETA */
+/* ============================= */
+
+.has-opening {
+  overflow: hidden;
+}
+
+.opening-screen {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100dvh;
+  min-height: 100vh;
+  z-index: 3000;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  background:
+    linear-gradient(
+      rgba(255, 253, 249, 0.25),
+      rgba(255, 253, 249, 0.35)
+    ),
+    url("../img/floral-bg.png");
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  transition:
+    opacity 1s ease,
+    visibility 1s ease,
+    transform 1s ease;
+}
+
+.opening-screen.opening-hide {
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.03);
+}
+
+/* El sobre ahora ocupa toda la pantalla */
+.envelope-card {
+  width: 100vw;
+  height: 100dvh;
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 250, 244, 0.96),
+      rgba(228, 213, 190, 0.94)
+    );
+  overflow: hidden;
+  box-shadow: none;
+}
+
+/* Solapas laterales del sobre */
+.envelope-card::before,
+.envelope-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transition: transform 1.15s ease;
+  z-index: 1;
+}
+
+.envelope-card::before {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 253, 249, 0.92) 0%,
+      rgba(255, 253, 249, 0.92) 50%,
+      transparent 50%
+    );
+}
+
+.envelope-card::after {
+  background:
+    linear-gradient(
+      225deg,
+      rgba(238, 226, 207, 0.92) 0%,
+      rgba(238, 226, 207, 0.92) 50%,
+      transparent 50%
+    );
+}
+
+/* Solapa superior */
+.envelope-flap {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(237, 220, 197, 0.96) 0%,
+      rgba(237, 220, 197, 0.96) 50%,
+      transparent 50%
+    );
+  clip-path: polygon(0 0, 100% 0, 50% 58%);
+  transform-origin: top center;
+  transition: transform 1.15s ease;
+  z-index: 2;
+}
+
+.opening-screen.opening-active .envelope-flap {
+  transform: rotateX(78deg);
+}
+
+.opening-screen.opening-active .envelope-card::before {
+  transform: translateX(-8vw);
+}
+
+.opening-screen.opening-active .envelope-card::after {
+  transform: translateX(8vw);
+}
+
+/* Sello central */
+.wax-seal {
+  position: relative;
+  z-index: 4;
+  width: clamp(190px, 24vw, 280px);
+  height: clamp(190px, 24vw, 280px);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 30%, #78906e, #4f6c50 68%, #3e5842);
+  color: var(--gold-soft);
+  border: clamp(7px, 1vw, 12px) solid rgba(183, 138, 76, 0.78);
+  box-shadow:
+    inset 0 0 18px rgba(0, 0, 0, 0.18),
+    0 16px 38px rgba(52, 52, 40, 0.28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  font-family: "Allura", cursive;
+  font-size: clamp(70px, 9vw, 120px);
+  transition:
+    transform 1s ease,
+    opacity 0.8s ease;
+}
+
+.wax-seal small {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(32px, 4vw, 52px);
+  color: var(--gold-soft);
+}
+
+.opening-screen.opening-active .wax-seal {
+  transform: scale(0.72) translateY(-90px);
+  opacity: 0;
+}
+
+/* Botón abrir */
+.open-invitation-button {
+  position: absolute;
+  bottom: clamp(76px, 11vh, 130px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  border: 1px solid rgba(183, 138, 76, 0.45);
+  border-radius: 999px;
+  padding: 13px 44px;
+  background: rgba(35, 52, 35, 0.62);
+  color: var(--gold-soft);
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: 12px;
+  box-shadow: 0 12px 26px rgba(52, 52, 40, 0.25);
+  backdrop-filter: blur(4px);
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    opacity 0.8s ease;
+}
+
+.open-invitation-button:hover {
+  transform: translateX(-50%) scale(1.04);
+  background: rgba(35, 52, 35, 0.78);
+}
+
+.opening-screen.opening-active .open-invitation-button {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Ajuste especial para celular */
+@media (max-width: 430px) {
+  .opening-screen,
+  .envelope-card {
+    width: 100vw;
+    height: 100dvh;
+    min-height: 100vh;
+  }
+
+  .wax-seal {
+    width: 240px;
+    height: 240px;
+    font-size: 78px;
+  }
+
+  .wax-seal small {
+    font-size: 34px;
+  }
+
+  .open-invitation-button {
+    width: min(78vw, 320px);
+    padding: 13px 24px;
   }
 }
