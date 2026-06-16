@@ -397,7 +397,7 @@
             Te agradeceremos confirmar tu asistencia con la novia o con el novio.
         </p>
 
-        <div class="confirm-buttons">
+        <!-- <div class="confirm-buttons">
             <a class="btn btn-confirm" 
                 target="_blank"
                 href="https://wa.me/522461042247?text=%C2%A1Hola!%20Soy%20[Tu%20nombre].%0A%0AQuiero%20confirmar%20mi%20asistencia%20a%20su%20boda%2C%20junto%20con%20[N%C3%BAmero%20de%20pases].%0A%0ASer%C3%A1%20un%20honor%20acompa%C3%B1arlos%20en%20su%20d%C3%ADa%20especial"
@@ -413,7 +413,24 @@
             <i class="bi bi-heart-fill"></i>
             Confirmar al novio
             </a>
-        </div>
+        </div> -->
+
+
+            <input id="nombre" type="text" placeholder="Nombre y apellidos" class="form-input">
+            <input id="pases" type="number" placeholder="Número de pases a confirmar" class="form-input">
+
+            <div class="confirm-buttons">
+                <button class="btn-confirm" onclick="confirmar('Liz')">
+                Confirmar a la novia
+                </button>
+
+                <button class="btn-confirm" onclick="confirmar('Aldo')">
+                Confirmar al novio
+                </button>
+            </div>
+
+            <p id="statusMsg"></p>
+
     </section>
 
     <!-- Iniciales / Footer -->

@@ -200,12 +200,6 @@ body {
 /* Fondo floral sutil */
 .floral-section,
 .itinerary-section {
-  background:
-    linear-gradient(
-      rgba(255, 253, 249, 0.84),
-      rgba(255, 253, 249, 0.9)
-    ),
-    url("../img/floral-bg.png");
   background-size: cover;
   background-position: center;
 }
@@ -483,12 +477,6 @@ body {
 /* ============================= */
 
 .gallery-section {
-  background:
-    linear-gradient(
-      rgba(233, 229, 220, 1),
-      rgba(233, 229, 220, 1)
-    ),
-    url("../img/floral-bg.png");
   background-size: cover;
   background-position: center;
 }
@@ -680,6 +668,50 @@ body {
 .btn-confirm i {
   margin-right: 8px;
 }
+
+/* Formulario */
+
+.form-input {
+  width: 90%;
+  max-width: 320px;
+  padding: 12px;
+  margin: 10px auto;
+  display: block;
+  border-radius: 10px;
+  border: 1px solid rgba(183, 138, 76, 0.4);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 16px;
+}
+
+.confirm-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.btn-confirm {
+  background: var(--green);
+  color: var(--gold-soft);
+  border: none;
+  padding: 14px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  cursor: pointer;
+}
+
+.btn-confirm:hover {
+  background: var(--green-dark);
+}
+
+#statusMsg {
+  margin-top: 15px;
+  font-style: italic;
+}
+
+
+/* Fin Formulario */
 
 @media (max-width: 375px) {
   .dress-cards {
@@ -1104,12 +1136,6 @@ body {
   display: flex;
   align-items: stretch;
   justify-content: stretch;
-  background:
-    linear-gradient(
-      rgba(255, 253, 249, 0.25),
-      rgba(255, 253, 249, 0.35)
-    ),
-    url("../img/floral-bg.png");
   background-size: cover;
   background-position: center;
   overflow: hidden;

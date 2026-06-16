@@ -359,3 +359,87 @@ function initBetterCarousel() {
 }
 
 initBetterCarousel();
+
+
+// ==============================
+// CONFIG
+// ==============================
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxl-mBh66-_bnSpZKK9LUsTIIPgobKlm-721ul-H_svWyXckabg34h61iXLiKcymuAq/exec";
+
+// 👉 Cambia estos números
+const NUMERO_NOVIA = "522461042247";
+const NUMERO_NOVIO = "522461345205";
+
+
+// ==============================
+// WHATSAPP
+// ==============================
+function abrirWhatsApp(tipo, nombre, pases, numeroDestino) {
+
+  const mensaje = `¡Hola ${tipo}! Soy ${nombre}.
+Te escribo para confirmar mi asistencia a su boda.
+
+Asistiré con ${pases} pase(s).
+Será un honor acompañarlos en su día especial!`;
+
+  const url = `https://wa.me/${numeroDestino}?text=${encodeURIComponent(mensaje)}`;
+  window.open(url, "_blank");
+}
+
+
+// ==============================
+// CONFIRMAR ASISTENCIA
+// ==============================
+async function confirmar(tipo) {
+
+  const nombre = document.getElementById("nombre").value.trim();
+  const pases = document.getElementById("pases").value.trim();
+  const status = document.getElementById("statusMsg");
+
+  if (!nombre || !pases) {
+    status.textContent = "Por favor completa tus datos.";
+    return;
+  }
+
+  // 👉 decide a quién mandar WhatsApp
+  const numeroDestino = (tipo === "Liz")
+    ? NUMERO_NOVIA
+    : NUMERO_NOVIO;
+
+  const data = {
+    nombre,
+    pases,
+    confirmadoCon: tipo
+  };
+
+  try {
+    status.textContent = "Enviando confirmación...";
+
+    const res = await fetch(SCRIPT_URL, {
+    method: "POST",
+    body: JSON.stringify(data)
+    });
+
+    const json = await res.json();
+
+    if (json.status === "ok") {
+
+      status.textContent = "¡Confirmación enviada!";
+
+      // abrir WhatsApp según botón
+      abrirWhatsApp(tipo, nombre, pases, numeroDestino);
+
+      // limpiar campos
+      document.getElementById("nombre").value = "";
+      document.getElementById("pases").value = "";
+
+    } else {
+      status.textContent = "Error al guardar confirmación.";
+      console.log(json);
+    }
+
+  } catch (error) {
+    console.log(error);
+    status.textContent = "Error de conexión, intenta de nuevo.";
+  }
+}
