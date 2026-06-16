@@ -570,6 +570,138 @@ body {
 }
 
 /* ============================= */
+/* CÓDIGO DE VESTIMENTA */
+/* ============================= */
+
+.dress-code-section {
+  background:
+    linear-gradient(
+      rgba(233, 229, 220, 0.96),
+      rgba(233, 229, 220, 0.98)
+    );
+}
+
+.dress-code-section h2 {
+  font-family: "Allura", cursive;
+  color: var(--green);
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.dress-text {
+  max-width: 350px;
+  margin: 0 auto 24px;
+  color: var(--green);
+  font-size: 22px;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.dress-note {
+  max-width: 350px;
+  margin: 0 auto 24px;
+  color: var(--green);
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+.dress-warning {
+  max-width: 330px;
+  margin: 0 auto 34px;
+  color: var(--green);
+  font-size: 20px;
+  font-weight: 700;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+/* ============================= */
+/* CONFIRMAR ASISTENCIA */
+/* ============================= */
+
+.confirm-section {
+  background:
+    linear-gradient(
+      rgba(233, 229, 220, 0.88),
+      rgba(233, 229, 220, 0.94)
+    );
+}
+
+.confirm-icon {
+  color: var(--gold);
+  font-size: 42px;
+  margin-bottom: 22px;
+  display: block;
+}
+
+.confirm-section h2 {
+  font-family: "Allura", cursive;
+  color: var(--green);
+  font-size: 46px;
+  font-weight: 400;
+  margin: 4px 0 18px;
+}
+
+.confirm-text {
+  max-width: 350px;
+  margin: 0 auto 34px;
+  color: var(--green);
+  font-size: 21px;
+  font-style: italic;
+  line-height: 1.7;
+}
+
+.confirm-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: center;
+}
+
+.btn-confirm {
+  width: 90%;
+  max-width: 330px;
+  border-radius: 999px;
+  background: var(--green);
+  color: var(--gold-soft);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  padding: 14px 22px;
+  font-size: 13px;
+  border: 1px solid rgba(183, 138, 76, 0.35);
+  box-shadow: 0 10px 24px rgba(35, 52, 35, 0.18);
+}
+
+.btn-confirm:hover {
+  background: var(--green-dark);
+  color: #fff;
+}
+
+.btn-confirm i {
+  margin-right: 8px;
+}
+
+@media (max-width: 375px) {
+  .dress-cards {
+    gap: 12px;
+  }
+
+  .dress-card {
+    min-height: 135px;
+    padding: 22px 8px 18px;
+  }
+
+  .dress-card i {
+    font-size: 46px;
+  }
+
+  .dress-card p {
+    font-size: 12px;
+    letter-spacing: 4px;
+  }
+}
+
+/* ============================= */
 /* FOOTER INICIALES */
 /* Aquí NO se ve el video */
 /* ============================= */
@@ -600,7 +732,7 @@ body {
 }
 
 .a-tamanio-wax{
-  font-size: clamp(90px, 9vw, 120px);
+  font-size: clamp(100px, 9vw, 120px);
 }
 
 .a-tamanio-initials{
@@ -1075,8 +1207,8 @@ body {
 .wax-seal {
   position: relative;
   z-index: 4;
-  width: clamp(190px, 24vw, 280px);
-  height: clamp(190px, 24vw, 280px);
+  width: clamp(200px, 24vw, 320px);
+  height: clamp(200px, 24vw, 320px);
   border-radius: 50%;
   background:
     radial-gradient(circle at 35% 30%, #78906e, #4f6c50 68%, #3e5842);
