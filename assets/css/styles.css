@@ -479,6 +479,7 @@ body {
 .gallery-section {
   background-size: cover;
   background-position: center;
+  background: linear-gradient(rgba(246, 242, 235, 0.86), rgba(246, 242, 235, 0.92));
 }
 
 .gallery-text {
@@ -1320,5 +1321,77 @@ body {
   .open-invitation-button {
     width: min(78vw, 320px);
     padding: 13px 24px;
+  }
+}
+
+.scroll-arrow {
+  position: absolute;
+  left: 50%;
+  bottom: 82px;
+  transform: translateX(-50%);
+  z-index: 20;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.9s ease;
+  text-align: center;
+}
+
+.scroll-arrow-visible {
+  opacity: 1;
+}
+
+.scroll-arrow-text {
+  margin: 0 0 16px;
+  color: rgba(255, 253, 249, 0.92);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 18px;
+  font-style: italic;
+  letter-spacing: 2px;
+  text-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.45),
+    0 0 12px rgba(216, 192, 154, 0.45);
+}
+
+.scroll-arrow-icons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.scroll-arrow-icons span {
+  display: block;
+  width: 28px;
+  height: 28px;
+  border-right: 3px solid rgba(255, 253, 249, 0.92);
+  border-bottom: 3px solid rgba(255, 253, 249, 0.92);
+  transform: rotate(45deg);
+  margin: -8px 0;
+  animation: arrowDown 1.5s infinite;
+  filter:
+    drop-shadow(0 0 6px rgba(255, 255, 255, 0.7))
+    drop-shadow(0 0 12px rgba(216, 192, 154, 0.45));
+}
+
+.scroll-arrow-icons span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.scroll-arrow-icons span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes arrowDown {
+  0% {
+    opacity: 0;
+    transform: rotate(45deg) translate(-8px, -8px);
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: rotate(45deg) translate(8px, 8px);
   }
 }

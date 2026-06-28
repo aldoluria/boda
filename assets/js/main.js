@@ -7,6 +7,12 @@ const openInvitationButton = document.getElementById("openInvitationButton");
 let isPlaying = false;
 let invitationOpened = false;
 
+// Precargar, pero NO reproducir
+music.load();
+
+// ==============================
+// ESTADO DE LA MÚSICA
+// ==============================
 function setPlayingState() {
   isPlaying = true;
   musicIcon.innerHTML = '<i class="bi bi-pause-fill"></i>';
@@ -19,23 +25,54 @@ function setPausedState() {
   musicButton.classList.remove("playing");
 }
 
-async function playMusic() {
+// ==============================
+// REPRODUCIR MÚSICA
+// ==============================
+async function playMusicFromUserClick() {
   try {
+    music.volume = 0.8;
     await music.play();
     setPlayingState();
+    return true;
   } catch (error) {
-    console.log("El navegador bloqueó la reproducción automática:", error);
+    console.log("El navegador bloqueó el audio:", error);
+    setPausedState();
+    return false;
   }
 }
 
+function showScrollArrow() {
+  const heroBorder = document.querySelector(".hero-border");
+
+  if (!heroBorder || document.querySelector(".scroll-arrow")) return;
+
+  const scrollArrow = document.createElement("div");
+  scrollArrow.classList.add("scroll-arrow");
+    scrollArrow.innerHTML = `
+    <p class="scroll-arrow-text">Desliza para ver más</p>
+    <div class="scroll-arrow-icons">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    `;
+
+  heroBorder.appendChild(scrollArrow);
+
+  setTimeout(() => {
+    scrollArrow.classList.add("scroll-arrow-visible");
+  }, 5000);
+}
+
+// ==============================
+// ABRIR INVITACIÓN
+// ==============================
 function openInvitation() {
   if (invitationOpened) return;
 
   invitationOpened = true;
 
   openingScreen.classList.add("opening-active");
-
-  playMusic();
 
   setTimeout(() => {
     openingScreen.classList.add("opening-hide");
@@ -44,21 +81,27 @@ function openInvitation() {
 
   setTimeout(() => {
     openingScreen.remove();
+    showScrollArrow();
   }, 1900);
 }
 
-openInvitationButton.addEventListener("click", openInvitation);
-openInvitationButton.addEventListener("touchstart", (event) => {
-  event.preventDefault();
+// ==============================
+// BOTÓN TOCA PARA ABRIR
+// ==============================
+// IMPORTANTE: usar click normal, sin preventDefault.
+openInvitationButton.addEventListener("click", async () => {
+  await playMusicFromUserClick();
   openInvitation();
-}, { passive: false });
+});
 
-/* Botón Play / Pause */
+// ==============================
+// BOTÓN PLAY / PAUSE
+// ==============================
 musicButton.addEventListener("click", async (event) => {
   event.stopPropagation();
 
   if (!isPlaying) {
-    await playMusic();
+    await playMusicFromUserClick();
   } else {
     music.pause();
     setPausedState();
